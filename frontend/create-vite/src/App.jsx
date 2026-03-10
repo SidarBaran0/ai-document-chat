@@ -4,7 +4,16 @@ export default function App() {
 
   const [file, setFile] = useState(null);
   const [question, setQuestion] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      role: "user",
+      text: "What is the content of this document?"
+    },
+    {
+      role: "ai",
+      text: "The document appears to describe a summer internship application. The author highlights their background in machine learning, software development, and problem solving, and expresses interest in gaining practical experience in AI-related projects."
+    }
+  ]);
   const chatEndRef = useRef(null);
 
   useEffect(() => {
