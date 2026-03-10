@@ -1,16 +1,172 @@
-# React + Vite
+# AI Document Chat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application that allows users to upload PDF documents and ask questions about the content using AI.
 
-Currently, two official plugins are available:
+The system extracts text from the uploaded document and uses an AI model to answer questions based on the document content.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Upload PDF documents
+* Extract text from PDF files
+* Ask questions about the document
+* AI generates answers based on the document content
+* Simple chat-style interface
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+Frontend
+
+* React (Vite)
+
+Backend
+
+* .NET Web API
+
+AI
+
+* OpenAI API (GPT model)
+
+Libraries
+
+* PdfPig for PDF text extraction
+
+---
+
+## Architecture
+
+User uploads PDF
+↓
+Backend extracts text from the document
+↓
+Document is stored in memory
+↓
+User asks a question
+↓
+Backend sends document text + question to AI
+↓
+AI generates answer
+↓
+Answer is returned to the frontend chat
+
+---
+
+## Project Structure
+
+ai-document-platform
+├── backend
+│   └── DocumentAPI (.NET Web API)
+│
+├── frontend
+│   └── React application (Vite)
+
+---
+
+## Setup Instructions
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/YOUR_USERNAME/ai-document-chat.git
+cd ai-document-chat
+```
+
+---
+
+### 2. Set OpenAI API key
+
+The backend requires an OpenAI API key.
+
+Mac / Linux
+
+```
+export OPENAI_API_KEY=your_api_key_here
+```
+
+Windows
+
+```
+setx OPENAI_API_KEY "your_api_key_here"
+```
+
+---
+
+### 3. Run the backend
+
+```
+cd backend/DocumentAPI
+dotnet run
+```
+
+The API will run on:
+
+```
+http://localhost:5258
+```
+
+Swagger will be available at:
+
+```
+http://localhost:5258/swagger
+```
+
+---
+
+### 4. Run the frontend
+
+Open a new terminal:
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend will run on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Example Usage
+
+1. Upload a PDF document
+2. Ask a question about the document
+3. The AI will generate an answer based on the document content
+
+Example:
+
+Question
+
+```
+What is this document about?
+```
+
+AI Response
+
+```
+The document describes ...
+```
+
+---
+
+## Future Improvements
+
+* Semantic search with embeddings (RAG)
+* Store documents in a database
+* Support multiple documents
+* Improve UI/UX
+* Add authentication
+
+---
+
+## Author
+
+Sidar Baran
+Bachelor's degree in Information Technology
+Specialization: Machine Learning and Artificial Intelligence
