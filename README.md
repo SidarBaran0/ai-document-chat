@@ -6,7 +6,13 @@ The system extracts text from the uploaded document and uses an AI model to answ
 
 ---
 
+## Demo
+
+![AI Document Chat](images/demo.png)
+
 ## Features
+
+---
 
 * Upload PDF documents
 * Extract text from PDF files
